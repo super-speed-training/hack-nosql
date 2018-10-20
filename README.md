@@ -1,0 +1,2 @@
+# hack-nosql
+Hackathon: NoSQL
