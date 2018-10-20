@@ -5,3 +5,16 @@
 
 <h2>SimpleTest</h2>
 
+@ViewData["msg"]
+
+<form method="post">
+    @Html.Label("url", "URL")
+    <br />
+    @Html.TextBox("url", "http://localhost:56734/api/hack", new { type = "url" })
+    <br />
+    @Html.Label("all", "All Coins?")
+    @Html.CheckBox("all")
+    <br />
+
+    <button type="submit">Test</button>
+</form>
