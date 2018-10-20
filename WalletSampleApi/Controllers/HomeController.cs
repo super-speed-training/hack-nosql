@@ -17,7 +17,7 @@ namespace WalletSampleApi.Controllers
 
         public IActionResult SimpleTest()
         {
-            ViewData["url"] = "https://hacknosql.azurewebsites.net/";
+            ViewData["url"] = "https://hacknosql.azurewebsites.net/api/hack";
             return View();
         }
 
