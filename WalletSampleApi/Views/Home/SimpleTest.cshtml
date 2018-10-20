@@ -5,3 +5,11 @@
 
 <h2>SimpleTest</h2>
 
+<form method="post">
+    @Html.Label("url", "URL")
+    <br />
+    @Html.TextBox("url", null, new { type = "url" })
+    <br />
+
+    <button type="submit">Test</button>
+</form>

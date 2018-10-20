@@ -17,5 +17,31 @@ namespace WalletSampleApi.Controllers
         {
             return View();
         }
+
+        private static readonly string[] coins =
+        new [] {
+            "BTC",
+            "ETH",
+            "XRP",
+            "BCH",
+            "EOS",
+            "XLM",
+            "LTC",
+            "USDT",
+            "ADA",
+            "XMR",
+            "TRX",
+            "DASH",
+            "BNB",
+            "NEO",
+            "ETC",
+            "XEM",
+        };
+
+        [HttpPost]
+        public IActionResult SimpleTest(string url)
+        {
+            return Content(string.Join(',', coins));
+        }
     }
 }
