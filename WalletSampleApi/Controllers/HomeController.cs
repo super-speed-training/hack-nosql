@@ -10,7 +10,12 @@ namespace WalletSampleApi.Controllers
     {
         public IActionResult Index()
         {
-            return Redirect("/swagger");
+            return View();
+        }
+
+        public IActionResult SimpleTest()
+        {
+            return View();
         }
     }
 }
