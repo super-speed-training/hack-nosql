@@ -78,7 +78,7 @@ namespace WalletSampleApi.Controllers
             var hcli = new HttpClient();
             await hcli.PostAsJsonAsync<CoinPriceUpdate>(url, priceUpdate);
 
-            ViewData["url"] = url;
+            ViewData["msg"] = string.Format("Processed data @ {0}", DateTime.Now);
 
             return View();
         }
