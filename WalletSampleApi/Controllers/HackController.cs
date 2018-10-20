@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using MongoDB.Driver;
 using WalletSampleApi.Models;
 
 namespace WalletSampleApi.Controllers
@@ -45,11 +46,23 @@ namespace WalletSampleApi.Controllers
             };
         }
 
+        private const string connectionString =
+@"mongodb://hacknosql:hdphCdfxatVPskEVblpNklEto8v0zIPdRZ3gukfFf3QKlS958O0DoJFOtKTzBkW9KWvT70QpoJxe9lmMJlGiVQ==@hacknosql.documents.azure.com:10255/?ssl=true&replicaSet=globaldb";
+
         // POST api/values
         [HttpPost]
         public void Post([FromBody] CoinPriceUpdate updateCoin)
         {
-            // TODO: Save to DB
+            var mclient = new MongoClient(connectionString);
+            var db = mclient.GetDatabase("hack");
+            var col = db.GetCollection<CoinPriceDB>("prices");
+
+            col.InsertOne(new CoinPriceDB
+            {
+                _id = DateTime.Now.Ticks.ToString(),
+                At = updateCoin.At,
+                PriceList = updateCoin.PriceList,
+            });
         }
     }
 }

@@ -17,4 +17,9 @@ namespace WalletSampleApi.Models
         public double Buy { get; set; }
         public double Sell { get; set; }
     }
+
+    public class CoinPriceDB : CoinPriceUpdate
+    {
+        public string _id { get; set; }
+    }
 }
